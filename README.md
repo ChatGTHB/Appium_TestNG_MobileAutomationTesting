@@ -3,7 +3,7 @@
 
 ## Overview
 
-This project is a comprehensive framework for mobile automation testing using Appium, Cucumber, TestNG, and the Page Object Model (POM) design pattern.
+This project is a comprehensive framework for mobile automation testing using Appium and TestNG.
 
 ## Features
 
