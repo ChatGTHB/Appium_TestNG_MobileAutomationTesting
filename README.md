@@ -1,5 +1,5 @@
 
-# Appium Cucumber Mobile Automation Testing
+# Appium TestNG Mobile Automation Testing
 
 ## Overview
 
@@ -8,9 +8,7 @@ This project is a comprehensive framework for mobile automation testing using Ap
 ## Features
 
 - Appium for mobile automation
-- Cucumber for BDD
 - TestNG for test management
-- Page Object Model for better code organization
 - Support for Android platform
 - Configurable via external files
 
@@ -41,8 +39,8 @@ Appium_Cucumber_MobileAutomationTesting/
 
 1. Clone the repository:
    ```sh
-   git clone https://github.com/ChatGTHB/Appium_Cucumber_MobileAutomationTesting.git
-   cd Appium_Cucumber_MobileAutomationTesting
+   git clone https://github.com/ChatGTHB/Appium_TestNG_MobileAutomationTesting.git
+   cd Appium_TestNG_MobileAutomationTesting
    ```
 
 2. **Java Installation**
