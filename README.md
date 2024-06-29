@@ -1,20 +1,23 @@
 
-# Appium TestNG Mobile Automation Testing
+# Appium Cucumber Mobile Automation Testing
 
-This project uses Appium and TestNG for automating tests on mobile applications. The project is configured to run tests on Android devices.
+## Overview
 
-## Requirements
+This project is a comprehensive framework for mobile automation testing using Appium, Cucumber, TestNG, and the Page Object Model (POM) design pattern.
 
-- Java 11+
-- Maven 3.6+
-- Android SDK
-- Appium Server
-- An Android Emulator or Real Device
+## Features
+
+- Appium for mobile automation
+- Cucumber for BDD
+- TestNG for test management
+- Page Object Model for better code organization
+- Support for Android platform
+- Configurable via external files
 
 ## Project Structure
 
-```plaintext
-Appium_TestNG_MobileAutomationTesting/
+```
+Appium_Cucumber_MobileAutomationTesting/
 ├── .idea/
 ├── src/
 │   ├── main/
@@ -36,23 +39,29 @@ Appium_TestNG_MobileAutomationTesting/
 
 ## Setup
 
-1. **Java Installation**
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/ChatGTHB/Appium_Cucumber_MobileAutomationTesting.git
+   cd Appium_Cucumber_MobileAutomationTesting
+   ```
+
+2. **Java Installation**
    - Install Java JDK 11 or later.
    - Set JAVA_HOME and PATH environment variables.
 
-2. **Maven Installation**
+3. **Maven Installation**
    - Download and install Maven from [here](https://maven.apache.org/download.cgi).
    - Set MAVEN_HOME and PATH environment variables.
 
-3. **Android SDK Installation**
+4. **Android SDK Installation**
    - Install Android Studio and configure the Android SDK.
    - Set ANDROID_HOME and PATH environment variables.
 
-4. **Appium Server Installation**
+5. **Appium Server Installation**
    - Download and install Appium Desktop from [here](https://github.com/appium/appium-desktop/releases).
    - Start Appium.
 
-5. **Loading Project Dependencies**
+6. **Loading Project Dependencies**
    - Navigate to the root directory of your project in the terminal or command line.
    - Run the following command to load the Maven dependencies:
      ```sh
