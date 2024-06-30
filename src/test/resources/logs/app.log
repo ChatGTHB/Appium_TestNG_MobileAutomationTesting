@@ -1,0 +1,8 @@
+2024-06-30 23:16:02.290 INFO  - AndroidDriver initialized successfully.
+2024-06-30 23:16:02.457 INFO  - Starting login test.
+2024-06-30 23:16:09.424 INFO  - Actual login message: You are logged in!
+2024-06-30 23:16:11.052 INFO  - Application closed and AndroidDriver instance terminated.
+2024-06-30 23:33:20.142 INFO  - AndroidDriver initialized successfully.
+2024-06-30 23:33:20.246 INFO  - Starting login test.
+2024-06-30 23:33:27.565 INFO  - Actual login message: You are logged in!
+2024-06-30 23:33:28.545 INFO  - Application closed and AndroidDriver instance terminated.
