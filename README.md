@@ -11,6 +11,7 @@ This project is designed to automate mobile application testing using Appium, Te
 Appium_TestNG_MobileAutomationTesting
 ├── .idea
 ├── src
+│   ├── apk   
 │   ├── main
 │   └── test
 │       └── java
