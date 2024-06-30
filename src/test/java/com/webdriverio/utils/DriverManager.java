@@ -5,11 +5,13 @@ import io.appium.java_client.android.options.UiAutomator2Options;
 import io.appium.java_client.remote.AutomationName;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import com.webdriverio.base.AppiumServer;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
 
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.time.Duration;
-import com.webdriverio.base.AppiumServer;
 
 public class DriverManager {
 
@@ -17,14 +19,14 @@ public class DriverManager {
     private static final Logger logger = LoggerFactory.getLogger(DriverManager.class);
 
     // Private constructor to prevent instantiation
-    private DriverManager() {}
+    protected DriverManager() {}
 
     /**
      * Returns an instance of the AndroidDriver.
      * Starts the Appium server if not already started.
      * @return AndroidDriver instance
      */
-    public static AndroidDriver getAndroidDriver() {
+    public static AndroidDriver getDriver() {
         if (driver == null) {
             AppiumServer.start();
             UiAutomator2Options options = getUiAutomator2Options();
@@ -66,5 +68,21 @@ public class DriverManager {
             AppiumServer.stop();
             logger.info("Application closed and AndroidDriver instance terminated.");
         }
+    }
+
+    /**
+     * Sets up the test environment before the test class is executed.
+     */
+    @BeforeClass
+    public void setUp() {
+        getDriver();
+    }
+
+    /**
+     * Tears down the test environment after the test class has been executed.
+     */
+    @AfterClass
+    public void tearDown() {
+        closeApplication();
     }
 }
