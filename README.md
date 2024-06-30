@@ -7,7 +7,7 @@ This project is designed to automate mobile application testing using Appium, Te
 
 ## Project Structure
 
-\`\`\`
+```plaintext
 Appium_TestNG_MobileAutomationTesting
 ├── .idea
 ├── src
@@ -31,7 +31,7 @@ Appium_TestNG_MobileAutomationTesting
 ├── pom.xml
 ├── README.md
 └── testng.xml
-\`\`\`
+```
 
 - **com.webdriverio.base**
   - `AppiumServer.java`: Manages the Appium server lifecycle.
@@ -70,14 +70,14 @@ Appium_TestNG_MobileAutomationTesting
 
 - Install Node.js from [Node.js](https://nodejs.org/).
 - Install Appium globally using npm:
-  \`\`\`bash
+  ```bash
   npm install -g appium
   npm install -g appium-doctor
-  \`\`\`
+  ```
 - Verify Appium installation:
-  \`\`\`bash
+  ```bash
   appium-doctor --android
-  \`\`\`
+  ```
 
 ### 4. Set Environment Variables
 
@@ -97,19 +97,19 @@ Appium_TestNG_MobileAutomationTesting
 ### Using Maven
 
 1. **Clone the Repository**:
-   \`\`\`bash
+   ```bash
    git clone https://github.com/ChatGTHB/Appium_TestNG_MobileAutomationTesting.git
    cd Appium_TestNG_MobileAutomationTesting
-   \`\`\`
+   ```
 
 2. **Start Android Emulator or Connect a Physical Device**:
    - Start your Android emulator from Android Studio or connect a physical device via USB and ensure it is in developer mode.
 
 3. **Run the Tests**:
    - Use Maven to run the tests:
-     \`\`\`bash
+     ```bash
      mvn clean test
-     \`\`\`
+     ```
 
 ### Using TestNG in IDE
 
@@ -117,39 +117,28 @@ Appium_TestNG_MobileAutomationTesting
    - Start your Android emulator from Android Studio or connect a physical device via USB and ensure it is in developer mode.
 
 2. **Run the Tests from LoginTest Class**:
-   - Open the \`LoginTest\` class in your IDE.
-   - Right-click on the class or the test method and select \`Run 'LoginTest'\` or \`Run 'testLogin'\`.
+   - Open the `LoginTest` class in your IDE.
+   - Right-click on the class or the test method and select `Run 'LoginTest'` or `Run 'testLogin'`.
 
 ## Project Details
 
-### AppiumServer Class
-
-The \`AppiumServer\` class is responsible for managing the Appium server lifecycle. It provides methods to start and stop the Appium server using the \`AppiumServiceBuilder\`. The class ensures that the server is properly configured with the necessary settings and logs all activities to a file (\`Appiumlog.txt\`).
-
-### DriverManager Class
-
-The \`DriverManager\` class handles the initialization of the Android driver. It ensures that the driver is configured with the required capabilities and connected to the Appium server. It also manages the driver instance lifecycle, ensuring that the driver is properly started and stopped as needed.
-
-### LoginPage Class
-
-The \`LoginPage\` class contains methods to interact with the login page of the mobile application. It uses the Appium driver to locate and interact with elements on the page, such as entering the email and password, clicking the login button, and retrieving the success message.
-
-### LoginTest Class
-
-The \`LoginTest\` class contains TestNG test cases that verify the login functionality of the mobile application. It uses the \`LoginPage\` methods to perform actions and assertions to ensure that the login process works as expected. You can run these tests using Maven or directly from the \`LoginTest\` class in your IDE.
+- **AppiumServer Class**: Manages the Appium server lifecycle.
+- **DriverManager Class**: Handles the initialization of the Android driver.
+- **LoginPage Class**: Contains methods to interact with the login page.
+- **LoginTest Class**: Contains TestNG test cases for verifying the login functionality.
 
 ## Logging
 
-The project uses SLF4J with Logback for logging. The logs are written to a file (\`Appiumlog.txt\`) as well as the console, providing detailed information about the test execution and any issues encountered.
+The project uses SLF4J with Logback for logging. Logs are written to `Appiumlog.txt` and the console, providing detailed information about the test execution and any issues encountered.
 
 ## Contributing
 
-1. Fork the repository.
-2. Create a new branch (\`git checkout -b feature/your-feature\`).
-3. Commit your changes (\`git commit -m 'Add some feature'\`).
-4. Push to the branch (\`git push origin feature/your-feature\`).
-5. Open a pull request.
+Contributions are welcome! Please fork the repository and create a pull request.
 
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Contact
+
+For any questions or suggestions, please open an issue or contact the repository owner.
