@@ -2,15 +2,15 @@ package com.webdriverio.tests;
 
 import com.webdriverio.utils.DriverManager;
 import com.webdriverio.pages.LoginPage;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class LoginTest extends DriverManager {
 
     private LoginPage loginPage;
-    private static final Logger logger = LoggerFactory.getLogger(LoginTest.class);
+    private static final Logger logger = LogManager.getLogger(LoginTest.class);
 
     /**
      * Tests the login functionality.

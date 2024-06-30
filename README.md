@@ -11,23 +11,22 @@ This project is designed to automate mobile application testing using Appium, Te
 Appium_TestNG_MobileAutomationTesting
 ├── .idea
 ├── src
-│   ├── apk   
+│   ├── apk
 │   ├── main
 │   └── test
 │       └── java
 │           └── com
 │               └── webdriverio
 │                   ├── base
-│                   │   └── AppiumServer.java
 │                   ├── pages
-│                   │   └── LoginPage.java
 │                   ├── tests
-│                   │   └── LoginTest.java
 │                   └── utils
-│                       └── DriverManager.java
+│       └── resources
+│           └── logs
+│               └── log4j2.xml
 ├── target
 ├── .gitignore
-├── Appiumlog.txt
+├── Appium_TestNG_MobileAutomationTesting.iml
 ├── LICENSE
 ├── pom.xml
 ├── README.md
@@ -35,16 +34,19 @@ Appium_TestNG_MobileAutomationTesting
 ```
 
 - **com.webdriverio.base**
-  - `AppiumServer.java`: Manages the Appium server lifecycle.
-  
+  - Contains base classes for the project.
+
 - **com.webdriverio.pages**
-  - `LoginPage.java`: Contains methods to interact with the login page of the mobile application.
+  - Contains page object classes for the mobile application.
 
 - **com.webdriverio.tests**
-  - `LoginTest.java`: Contains TestNG test cases for testing the login functionality.
+  - Contains TestNG test classes.
 
 - **com.webdriverio.utils**
-  - `DriverManager.java`: Initializes and provides the Android driver.
+  - Contains utility classes for the project.
+
+- **resources.logs**
+  - Contains log configuration files.
 
 ## Prerequisites
 
@@ -73,21 +75,11 @@ Appium_TestNG_MobileAutomationTesting
 - Install Appium globally using npm:
   ```bash
   npm install -g appium
-  npm install -g appium-doctor
-  ```
-- Verify Appium installation:
-  ```bash
-  appium-doctor --android
   ```
 
-### 4. Set Environment Variables
+### 4. Install Android SDK
 
-- `APPIUM_PATH`: Path to Appium's main.js file (usually in the global npm modules directory).
-- `NODE_PATH`: Path to Node.js executable.
-
-### 5. Install Android SDK
-
-- Download and install Android Studio from [Android Developers](https://developer.android.com/studio).
+- Download and install Android Studio from [Android Developer](https://developer.android.com/studio).
 - Install necessary SDK tools and platform tools.
 - Set `ANDROID_HOME` environment variable.
 
@@ -130,7 +122,7 @@ Appium_TestNG_MobileAutomationTesting
 
 ## Logging
 
-The project uses SLF4J with Logback for logging. Logs are written to `Appiumlog.txt` and the console, providing detailed information about the test execution and any issues encountered.
+The project uses Log4j2 for logging. Configuration is set in the `log4j2.xml` file located in the `src/test/resources/logs` directory. Logs provide detailed information about the test execution and any issues encountered.
 
 ## Contributing
 

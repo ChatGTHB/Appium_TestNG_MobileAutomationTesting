@@ -3,8 +3,8 @@ package com.webdriverio.utils;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
 import io.appium.java_client.remote.AutomationName;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import com.webdriverio.base.AppiumServer;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -16,7 +16,7 @@ import java.time.Duration;
 public class DriverManager {
 
     private static AndroidDriver driver;
-    private static final Logger logger = LoggerFactory.getLogger(DriverManager.class);
+    private static final Logger logger = LogManager.getLogger(DriverManager.class);
 
     // Private constructor to prevent instantiation
     protected DriverManager() {}
