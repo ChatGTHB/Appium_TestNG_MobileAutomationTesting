@@ -1,26 +1,38 @@
-package utilities;
+package com.webdriverio.utils;
 
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
 import io.appium.java_client.remote.AutomationName;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.time.Duration;
+import com.webdriverio.base.AppiumServer;
 
 public class DriverManager {
 
     private static AndroidDriver driver;
+    private static final Logger logger = LoggerFactory.getLogger(DriverManager.class);
 
     // Private constructor to prevent instantiation
     private DriverManager() {}
 
+    /**
+     * Returns an instance of the AndroidDriver.
+     * Starts the Appium server if not already started.
+     * @return AndroidDriver instance
+     */
     public static AndroidDriver getAndroidDriver() {
         if (driver == null) {
+            AppiumServer.start();
             UiAutomator2Options options = getUiAutomator2Options();
             try {
                 driver = new AndroidDriver(new URL("http://127.0.0.1:4723"), options);
+                logger.info("AndroidDriver initialized successfully.");
             } catch (MalformedURLException e) {
+                logger.error("Failed to initialize Android Driver: Invalid URL", e);
                 throw new RuntimeException("Failed to initialize Android Driver: Invalid URL", e);
             }
             driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
@@ -28,6 +40,10 @@ public class DriverManager {
         return driver;
     }
 
+    /**
+     * Configures UiAutomator2 options for the AndroidDriver.
+     * @return UiAutomator2Options instance
+     */
     private static UiAutomator2Options getUiAutomator2Options() {
         UiAutomator2Options options = new UiAutomator2Options();
         options.setPlatformName("Android");
@@ -39,10 +55,16 @@ public class DriverManager {
         return options;
     }
 
+    /**
+     * Closes the application and quits the driver.
+     * Stops the Appium server.
+     */
     public static void closeApplication() {
         if (driver != null) {
             driver.quit();
             driver = null;
+            AppiumServer.stop();
+            logger.info("Application closed and AndroidDriver instance terminated.");
         }
     }
 }

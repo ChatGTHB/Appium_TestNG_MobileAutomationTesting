@@ -1,95 +1,155 @@
 
-# Appium TestNG Mobile Automation Testing
+# Mobile Test Automation Project
 
 ## Overview
 
-This project is a comprehensive framework for mobile automation testing using Appium and TestNG.
-
-## Features
-
-- Appium for mobile automation
-- TestNG for test management
-- Support for Android platform
-- Configurable via external files
+This project is designed to automate mobile application testing using Appium, TestNG, and Java. It focuses on testing the login functionality of a sample mobile application. The project includes a robust setup for starting and stopping the Appium server, initializing the Android driver, and running TestNG test cases.
 
 ## Project Structure
 
-```
-Appium_Cucumber_MobileAutomationTesting/
-├── .idea/
-├── src/
-│   ├── main/
-│   │   └── java/
-│   │       └── resources/
-│   ├── test/
-│   │   └── java/
-│   │       ├── tests/
-│   │       │   └── ApkRun.java
-│   │       └── utilities/
-│   │           └── DriverManager.java
-├── target/
+\`\`\`
+Appium_TestNG_MobileAutomationTesting
+├── .idea
+├── src
+│   ├── main
+│   └── test
+│       └── java
+│           └── com
+│               └── webdriverio
+│                   ├── base
+│                   │   └── AppiumServer.java
+│                   ├── pages
+│                   │   └── LoginPage.java
+│                   ├── tests
+│                   │   └── LoginTest.java
+│                   └── utils
+│                       └── DriverManager.java
+├── target
 ├── .gitignore
+├── Appiumlog.txt
+├── LICENSE
 ├── pom.xml
 ├── README.md
-├── LICENSE
 └── testng.xml
-```
+\`\`\`
+
+- **com.webdriverio.base**
+  - `AppiumServer.java`: Manages the Appium server lifecycle.
+  
+- **com.webdriverio.pages**
+  - `LoginPage.java`: Contains methods to interact with the login page of the mobile application.
+
+- **com.webdriverio.tests**
+  - `LoginTest.java`: Contains TestNG test cases for testing the login functionality.
+
+- **com.webdriverio.utils**
+  - `DriverManager.java`: Initializes and provides the Android driver.
+
+## Prerequisites
+
+- Java Development Kit (JDK) 11 or higher
+- Apache Maven
+- Node.js and npm
+- Appium Server
+- Android SDK
+- Android Emulator or a Physical Android Device
 
 ## Setup
 
-1. Clone the repository:
-   ```sh
+### 1. Install JDK
+
+- Download and install JDK from [Oracle](https://www.oracle.com/java/technologies/javase-downloads.html).
+- Set `JAVA_HOME` environment variable.
+
+### 2. Install Maven
+
+- Download and install Maven from [Maven](https://maven.apache.org/download.cgi).
+- Set `MAVEN_HOME` environment variable.
+
+### 3. Install Node.js and Appium
+
+- Install Node.js from [Node.js](https://nodejs.org/).
+- Install Appium globally using npm:
+  \`\`\`bash
+  npm install -g appium
+  npm install -g appium-doctor
+  \`\`\`
+- Verify Appium installation:
+  \`\`\`bash
+  appium-doctor --android
+  \`\`\`
+
+### 4. Set Environment Variables
+
+- `APPIUM_PATH`: Path to Appium's main.js file (usually in the global npm modules directory).
+- `NODE_PATH`: Path to Node.js executable.
+
+### 5. Install Android SDK
+
+- Download and install Android Studio from [Android Developers](https://developer.android.com/studio).
+- Install necessary SDK tools and platform tools.
+- Set `ANDROID_HOME` environment variable.
+
+## Running the Tests
+
+**Important**: Ensure that your Android device or emulator is running and properly configured before executing the tests.
+
+### Using Maven
+
+1. **Clone the Repository**:
+   \`\`\`bash
    git clone https://github.com/ChatGTHB/Appium_TestNG_MobileAutomationTesting.git
    cd Appium_TestNG_MobileAutomationTesting
-   ```
+   \`\`\`
 
-2. **Java Installation**
-   - Install Java JDK 11 or later.
-   - Set JAVA_HOME and PATH environment variables.
+2. **Start Android Emulator or Connect a Physical Device**:
+   - Start your Android emulator from Android Studio or connect a physical device via USB and ensure it is in developer mode.
 
-3. **Maven Installation**
-   - Download and install Maven from [here](https://maven.apache.org/download.cgi).
-   - Set MAVEN_HOME and PATH environment variables.
+3. **Run the Tests**:
+   - Use Maven to run the tests:
+     \`\`\`bash
+     mvn clean test
+     \`\`\`
 
-4. **Android SDK Installation**
-   - Install Android Studio and configure the Android SDK.
-   - Set ANDROID_HOME and PATH environment variables.
+### Using TestNG in IDE
 
-5. **Appium Server Installation**
-   - Download and install Appium Desktop from [here](https://github.com/appium/appium-desktop/releases).
-   - Start Appium.
+1. **Start Android Emulator or Connect a Physical Device**:
+   - Start your Android emulator from Android Studio or connect a physical device via USB and ensure it is in developer mode.
 
-6. **Loading Project Dependencies**
-   - Navigate to the root directory of your project in the terminal or command line.
-   - Run the following command to load the Maven dependencies:
-     ```sh
-     mvn clean install
-     ```
+2. **Run the Tests from LoginTest Class**:
+   - Open the \`LoginTest\` class in your IDE.
+   - Right-click on the class or the test method and select \`Run 'LoginTest'\` or \`Run 'testLogin'\`.
 
-## Running the Project
+## Project Details
 
-1. **Starting Appium Server**
-   - Start the Appium server using Appium Desktop or via terminal.
+### AppiumServer Class
 
-2. **Starting Android Emulator or Real Device**
-   - Start an Android emulator or connect a real device via USB.
+The \`AppiumServer\` class is responsible for managing the Appium server lifecycle. It provides methods to start and stop the Appium server using the \`AppiumServiceBuilder\`. The class ensures that the server is properly configured with the necessary settings and logs all activities to a file (\`Appiumlog.txt\`).
 
-3. **Running the Tests**
-   - Navigate to the root directory of your project in the terminal or command line.
-   - Run the following command to execute the tests:
-     ```sh
-     mvn test
-     ```
+### DriverManager Class
 
-## Test Files
+The \`DriverManager\` class handles the initialization of the Android driver. It ensures that the driver is configured with the required capabilities and connected to the Appium server. It also manages the driver instance lifecycle, ensuring that the driver is properly started and stopped as needed.
 
-- **tests/ApkRun.java**: An example test file.
-- **utilities/DriverManager.java**: A utility class that manages the Appium driver.
+### LoginPage Class
+
+The \`LoginPage\` class contains methods to interact with the login page of the mobile application. It uses the Appium driver to locate and interact with elements on the page, such as entering the email and password, clicking the login button, and retrieving the success message.
+
+### LoginTest Class
+
+The \`LoginTest\` class contains TestNG test cases that verify the login functionality of the mobile application. It uses the \`LoginPage\` methods to perform actions and assertions to ensure that the login process works as expected. You can run these tests using Maven or directly from the \`LoginTest\` class in your IDE.
+
+## Logging
+
+The project uses SLF4J with Logback for logging. The logs are written to a file (\`Appiumlog.txt\`) as well as the console, providing detailed information about the test execution and any issues encountered.
 
 ## Contributing
 
-If you want to contribute to the project, please create a pull request. All contributions are welcome.
+1. Fork the repository.
+2. Create a new branch (\`git checkout -b feature/your-feature\`).
+3. Commit your changes (\`git commit -m 'Add some feature'\`).
+4. Push to the branch (\`git push origin feature/your-feature\`).
+5. Open a pull request.
 
 ## License
 
-This project is licensed under the MIT License. For more information, see the [LICENSE](LICENSE) file.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
